@@ -1,0 +1,13 @@
+export default {
+  async fetch(request, env, ctx) {
+    const url = new URL(request.url);
+    
+    // agar sirf domain khula hai to seedha image pe bhej do
+    if (url.pathname === "/") {
+      return Response.redirect("/https://erp-6sa.pages.dev/7620460422574061237.jpeg", 301);
+    }
+    
+    // baqi sab files normal serve karo
+    return env.ASSETS.fetch(request);
+  },
+}
